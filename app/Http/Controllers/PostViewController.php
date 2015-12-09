@@ -17,7 +17,7 @@ class PostViewController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::paginate(1);
+        $posts = Post::query()->select("*")->orderBy("created_at", "dsc")->paginate(10);
         return view("index", ["posts" => $posts]);
     }
     /**
