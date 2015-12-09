@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/home', function () {
-    return view('index');
-});
-
-Route::get("/newpost", function(){
-    return view("newpost");
-});
+Route::get('/', "PostViewController@index");
+Route::get('/home', "PostViewController@index");
+Route::get("/new", "PostController@create");
+Route::post("/new", "PostController@store");
+Route::get("/post/{post}", "PostViewController@show");
+Route::delete("/post/{post}", "PostController@delete");
 
 // Authentication Routes...
 Route::get('/login', 'Auth\AuthController@getLogin');

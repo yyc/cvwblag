@@ -26,8 +26,8 @@ class AddAuthorColumn extends Migration
     public function down()
     {
         Schema::table("posts",function($table){
-            $table->dropForeign('author_id');
-            $table->dropColumn("author_id");
+            $table->dropForeign('posts_author_id_foreign');
+            $table->dropColumn('author_id');
         });
     }
 }

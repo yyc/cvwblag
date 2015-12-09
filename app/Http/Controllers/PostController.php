@@ -10,25 +10,14 @@ use App\Post;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $posts = Post::getAll();
-        return view("index", ["posts" => $posts]);
-    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        
+    public function create(Request $request){
+        return view("newpost");
     }
 
     /**
@@ -39,18 +28,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'post' => 'required|min:1'
+        ]);
+        $request->user()->posts()->create([
+            "header" => $request->title,
+            "content" => $request->post
+        ]);
     }
 
     /**
@@ -85,5 +70,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
