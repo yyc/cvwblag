@@ -9,7 +9,7 @@
             @foreach($posts as $post)
                 <div class="post">
                     <h2>{{$post->Header}}</h2>
-                    <p>{{$post->Content}}</p>
+                    <p>{!!$post->Content!!}</p>
                     <p>Posted on {{$post->created_at}} by {{$post->user->name}}</p>
                 </div>
                 
