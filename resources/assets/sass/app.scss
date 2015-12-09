@@ -1,12 +1,16 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-#navbar{
-    position:fixed;    
-    li{
-          
-    }
-}
 #header{
     width:100%;
+    
+}
+.post{
+    p:last-child{
+        border-top: gray 1px solid;
+        font-size: medium;
+        text-align: right;
+    }
+}
+.pagination{
     
 }

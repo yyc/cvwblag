@@ -34,7 +34,7 @@ class PostController extends Controller
         ]);
         $request->user()->posts()->create([
             "header" => $request->title,
-            "content" => $request->post
+            "content" => nl2br($request->post)
         ]);
     }
 
