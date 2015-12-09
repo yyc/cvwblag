@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/home', function () {
+    return view('index');
+});
+
+Route::get("/newpost", function(){
+    return view("newpost");
+});
+
+// Authentication Routes...
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+// Registration Routes...
+Route::get('/register', 'Auth\AuthController@getRegister');
+Route::post('/register', 'Auth\AuthController@postRegister');
