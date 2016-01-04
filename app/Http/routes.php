@@ -14,10 +14,13 @@
 Route::get('/', "PostViewController@index");
 Route::get('/home', "PostViewController@index");
 Route::get('/index', "PostViewController@index");
+
 Route::get("/new", "PostController@create");
 Route::post("/new", "PostController@store");
 Route::get("/post/{post}", "PostViewController@show");
 Route::delete("/post/{post}", "PostController@delete");
+
+Route::post("/post/{post}/comment", "PostViewController@comment");
 
 // Authentication Routes...
 Route::get('/login', 'Auth\AuthController@getLogin');

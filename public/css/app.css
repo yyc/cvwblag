@@ -6,4 +6,8 @@
   font-size: medium;
   text-align: right; }
 
+#comments li {
+  list-style: none;
+  border-bottom: grey 1px solid; }
+
 /*# sourceMappingURL=app.css.map */
