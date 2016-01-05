@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', "PostViewController@index");
-Route::get('/home', "PostViewController@index");
-Route::get('/index', "PostViewController@index");
+Route::get('/', "PostController@index");
+Route::get('/home', "PostController@index");
+Route::get('/index', "PostController@index");
 
 Route::get("/new", "PostController@create");
 Route::post("/new", "PostController@store");
-Route::get("/post/{post}", "PostViewController@show");
+Route::get("/post/{post}", "PostController@show");
 Route::delete("/post/{post}", "PostController@delete");
 
-Route::post("/post/{post}/comment", "PostViewController@comment");
+Route::post("/post/{post}/comment", "PostController@comment");
 
 // Authentication Routes...
 Route::get('/login', 'Auth\AuthController@getLogin');
