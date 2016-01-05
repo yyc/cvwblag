@@ -1,0 +1,13 @@
+Models:
+    User
+        email: VARCHAR
+        name: VARCHAR
+        password: VARCHAR
+    Post
+        Header: TEXT
+        Content: TEXT
+        user_id: User.id
+    Comment
+        content: TEXT
+        user_id: User.id
+        post_id: Post.id
